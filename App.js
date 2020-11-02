@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View, Image, SafeAreaView } from "react-native";
+import { StyleSheet, Text, SafeAreaView, Button, Alert } from "react-native";
 
 export default function App() {
   console.log("App executed");
@@ -8,12 +8,15 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <Text>What up bitches!</Text>
-      <Image
-        source={{
-          width: 200,
-          height: 300,
-          uri: "https://picsum.photos/200/300",
-        }}
+      <Button
+        color="orange"
+        title="Click Me"
+        onPress={() =>
+          Alert.alert("My title", "My message", [
+            { text: "Yes", onPress: () => console.log("Yes") },
+            { text: "No", onPress: () => console.log("No") },
+          ])
+        }
       />
       <StatusBar style="auto" />
     </SafeAreaView>
